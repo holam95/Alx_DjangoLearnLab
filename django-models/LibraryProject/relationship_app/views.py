@@ -17,6 +17,7 @@ class BookListiListView(ListView):
     def AllBooks(self):
 
         Allbooks = library.books.all()
+        return render("relationship_app/library_detail.html", from .models import Library)
 
 
 

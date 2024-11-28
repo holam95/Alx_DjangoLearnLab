@@ -8,7 +8,7 @@ def book_list(request):
     return render(request, "relationship_app/list_books.html", Book.objects.all())
 
 from django.views.generic import ListView
-from django.views.generic import DetailView
+from django.views.generic.detail import DetailView
 from . models import Library
 class BookListiListView(ListView):
     model = Library

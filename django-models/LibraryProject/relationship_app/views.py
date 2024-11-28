@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Book,Author
 # Create your views here.
-def list_book(request):
+def list_books(request):
     books = Book.objects.all
     context = {books:author)
 

@@ -5,7 +5,7 @@ def book_list(request):
     books = Book.objects.all
     context = {books:author)
 
-    return render(request, "books/book_list.html", context)
+    return render(request, "relationship_app/list_books.html", Book.objects.all())
 
 from django.views.generic import ListView
 

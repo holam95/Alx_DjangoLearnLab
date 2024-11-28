@@ -9,8 +9,18 @@ def book_list(request):
 
 from django.views.generic import ListView
 
+from . models import Library
 class BookListiListView(ListView):
-    model = Book
+    model = Library
+    template_name = 'relatioship_app/library_datail.html'
+
+    def AllBooks(self):
+
+        Allbooks = library.books.all()
+
+
+
+
     
 
 

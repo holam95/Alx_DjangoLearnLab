@@ -15,13 +15,13 @@ class Book(models.Model):
 
 class Library(models.Model):
     name = models.CharField()
-    books = ManyToManyField(Book, name = 'library')
+    books = models.ManyToManyField(Book, name = 'library')
     def __str__(self):
         return self.name
 
 class Librarian(models.Model):
     name = models.CharField()
-    library = OneToOneField(Library , on_delete = models.CASCADE, name = 'librarian')
+    library = models.OneToOneField(Library , on_delete = models.CASCADE, name = 'librarian')
 
     def __str__(self):
         return self.name

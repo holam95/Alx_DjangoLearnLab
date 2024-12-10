@@ -9,7 +9,7 @@ class Author(models.Model):
 
 class Book(models.Model):
     title = models.CharField()
-    author = ForeignKey(Author, on_delete = models.CASCADE, name = 'books')
+    author = models.ForeignKey(Author, on_delete = models.CASCADE, name = 'books')
     def __str__(self):
         return self.title
 

@@ -32,12 +32,12 @@ class LibraryDetailView(DetailView):
 
 
 # Login View
-class CustomLoginView(LoginView):
+class LoginView(LoginView):
     template_name = 'relationship_app/login.html'
     redirect_authenticated_user = True  # Redirect if the user is already authenticated
 
 # Logout View
-class CustomLogoutView(LogoutView):
+class LogoutView(LogoutView):
     template_name = 'relationship_app/logout.html'
 
 # Registration View

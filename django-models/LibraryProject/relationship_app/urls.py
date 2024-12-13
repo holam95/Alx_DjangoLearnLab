@@ -1,8 +1,8 @@
 from django.urls import path
 from .views import LibraryDetailView, LoginView, LogoutView, register
-from .admin_view import admin_view
-from .librarian_view import librarian_view
-from .member_view import member_view
+from .admin_view.py import admin_view
+from .librarian_view.py import librarian_view
+from .member_view.py import member_view
 
 from .views import list_books
 

@@ -10,10 +10,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.contrib.auth import login
 
-from relationship_app.utils import role_required
-@role_required('Admin')
-def admin_view(request):
-    return render(request, 'relationship_app/admin_view.html', {})
 
 # Create your views here.
 def list_books(request):

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .utils import role_required
+from relationship_app.utils import role_required  # Import the decorator
 
 @role_required('Admin')
 def admin_view(request):

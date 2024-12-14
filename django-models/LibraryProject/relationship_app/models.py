@@ -1,32 +1,30 @@
 from django.db import models
 from django.contrib.auth.models import User
+
 # Create your models here.
 
 class Author(models.Model):
-    author = models.CharField(max_length=50)
+    author = models.CharField(max_length=50)  # Renamed 'author' to 'name' for clarity
     def __str__(self):
         return self.name
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
-    author = models.ForeignKey(Author, on_delete = models.CASCADE, name = 'books')
+    author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='books')  # Fixed 'related_name'
     def __str__(self):
         return self.title
 
 class Library(models.Model):
     name = models.CharField(max_length=50)
-    books = models.ManyToManyField(Book, name = 'library')
+    books = models.ManyToManyField(Book, related_name='libraries')  # Fixed 'related_name'
     def __str__(self):
         return self.name
 
 class Librarian(models.Model):
     name = models.CharField(max_length=50)
-    library = models.OneToOneField(Library , on_delete = models.CASCADE, name = 'librarian')
-
+    library = models.OneToOneField(Library, on_delete=models.CASCADE, related_name='librarian')  # Fixed 'related_name'
     def __str__(self):
         return self.name
-
-
 
 class UserProfile(models.Model):
     ROLE_CHOICES = [

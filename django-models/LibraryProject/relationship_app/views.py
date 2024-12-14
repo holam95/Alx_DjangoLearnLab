@@ -14,9 +14,9 @@ from django.contrib.auth import login
 from .utils import role_required
 
 
-from . import admin_view
-from . import librarian_view
-from . import member_view
+from .admin_view import admin_view
+from .librarian_view import librarian_view
+from .member_view import member_view
 
 
 @role_required('Admin')

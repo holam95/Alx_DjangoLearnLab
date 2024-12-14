@@ -11,6 +11,28 @@ from django.urls import reverse_lazy
 from django.contrib.auth import login
 
 
+from .utils import role_required
+
+
+from . import admin_view
+from . import librarian_view
+from . import member_view
+
+
+@role_required('Admin')
+def admin_view(request):
+    return render(request, 'relationship_app/admin_view.html', {})
+
+
+@role_required('Librarian')
+def librarian_view(request):
+    return render(request, 'relationship_app/librarian_view.html', {})
+
+
+@role_required('Member')
+def member_view(request):
+    return render(request, 'relationship_app/member_view.html', {})
+
 # Create your views here.
 def list_books(request):
     books = Book.objects.all

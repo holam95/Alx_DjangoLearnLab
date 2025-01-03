@@ -1,10 +1,27 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 # Create your models here.
+
 class Book(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=100)
     publication_year = models.IntegerField()
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        permissions = [
+            ("can_view", "Can view books"),
+            ("can_create", "Can create books"),
+            ("can_edit", "Can edit books"),
+            ("can_delete", "Can delete books"),
+        ]
+
+'''class Book(models.Model):
+    title = models.CharField(max_length=200)
+    author = models.CharField(max_length=100)
+    publication_year = models.IntegerField()'''
 
 
 # Custom User Manager
@@ -45,3 +62,4 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.username
+
